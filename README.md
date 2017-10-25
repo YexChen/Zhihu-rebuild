@@ -20,8 +20,8 @@ web服务器框架:express
 后续还有功能，待添加
 
 
-#users--用户表的设计
-users
+#Users--用户表的设计
+Users
 用户表
 id 登陆id
 username 用户名
