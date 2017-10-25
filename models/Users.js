@@ -1,5 +1,5 @@
 //这一页是用户的schema和静态函数创建的地方
-let mongoDB = require("./config/db.js");
+let mongoDB = require("../config/db.js");
 
 let Schema = mongoDB.Schema;
 
