@@ -29,4 +29,5 @@ UsersSchema.static("createUser",function(params,callback){
   this.create({"username":params.username,"password":params.password},callback)
 });
 
+
 module.exports = mongoDB.model("Users",UsersSchema);
