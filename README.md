@@ -23,7 +23,6 @@ web服务器框架:express
 #Users--用户表的设计
 Users
 用户表
-id 登陆id
 username 用户名
 nickname 用户昵称
 password 密码
@@ -34,3 +33,4 @@ Star 收藏的文章
 Fave 可能喜欢的内容
 created_time 创建时间
 updated_time 最后登录时间
+token : 用户的session里面包括的token
