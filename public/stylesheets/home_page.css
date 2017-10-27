@@ -90,7 +90,7 @@ a{
 	border: 1px solid #dfdfdf;
 }
 #drop_down{
-	background-image: url(../images/sjx.png);
+	background-image: url(/images/sjx.png);
 	background-origin: border-box;
 	background-size: 15% 15%;
 	background-repeat: no-repeat;
@@ -175,7 +175,7 @@ a{
 	color: #225599;
 	line-height: 1.66667rem;
 	white-space:nowrap;
-	/*text-overflow:ellipsis;	
+	/*text-overflow:ellipsis;
 	overflow:hidden;*/
 }
 .titles:active{
@@ -200,13 +200,13 @@ a{
 	font-size: 0.9rem;
 	color: #999999;
 	white-space:nowrap;
-	text-overflow:ellipsis;	
+	text-overflow:ellipsis;
 }
 .contents{
 	width: 100%;
 	height: 14rem;
-	word-wrap: break-word; 
-	word-break: normal; 
+	word-wrap: break-word;
+	word-break: normal;
 	font-size: 0.9rem;
 	line-height: 1.6;
 }
