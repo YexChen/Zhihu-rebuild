@@ -1,0 +1,338 @@
+/*页面初始化*/
+body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,button,textarea,p,blockquote,th,td { margin:0; padding:0; }
+body { background:#fff;font-size:14px; font-family: Verdana, Arial, Helvetica, sans-serif; }
+td,th,caption { font-size:14px; }
+h1, h2, h3, h4, h5, h6 { font-weight:normal; font-size:100%; }
+address, caption, cite, code, dfn, em, strong, th, var { font-style:normal; font-weight:normal;}
+a { color:#555; text-decoration:none; }
+img { border:none; }
+ol,ul,li { list-style:none; }
+input, textarea, select, button { font:14px Verdana,Helvetica,Arial,sans-serif; }
+table { border-collapse:collapse; }
+html {overflow-y: scroll;} 
+
+.clearfix:after {content: "."; display: block; height:0; clear:both; visibility: hidden;}
+.clearfix { *zoom:1; }
+body{
+	width: 100%;
+}
+
+/*头部*/
+.page{
+	width: 100%;
+	overflow: hidden;
+}
+header{
+	width: 100%;
+	height: 52px;
+	background: white;
+	position: fixed;
+	z-index: 2;
+	box-shadow: 0 0 3px 0 #aaaaaa;
+}
+nav{
+	width: 1000px;
+	height: 52px;
+	margin: auto;
+/*	border: 1px solid red;*/
+}
+.logo{
+	float: left;
+	margin-top: 10px;
+}
+.lists{
+	width: 180px;
+	height: 52px;
+	float: left;
+	margin-left: 10px;
+}
+.lists>li{
+	width: 60px;
+	height: 52px;
+	float: left;
+}
+.lists>li>.home_page{
+	color: #000000;
+}
+.lists>li>a{
+	display: block;
+	width: 60px;
+	font-size: 14px;
+	text-align: center;
+	line-height: 52px;
+	color: #8590a6;
+	text-decoration:none;
+}
+.list:hover{
+	color: blue;
+}
+.search{
+	width: 324px;
+	height: 32px;
+	border-radius: 5px;
+	float: left;
+	margin: 9px 0 0 20px;
+	border: 1px solid #e7eaf1;
+	background-color:#f7f8fa ;
+}
+.search>input{
+	width: 240px;
+	line-height: 32px;
+	font-size: 12px;
+	padding-left: 10px;
+	border: none;
+	appearance: none;
+	outline: none;
+	background: none;
+	float: left;
+}
+.search>span{
+	float: right;
+	width: 32px;
+	height:32px;
+	background: url(../images/fdj.png) no-repeat;
+	background-position: 8px 8px;
+}
+.questions{
+	width: 58px;
+	height: 34px;
+	background: #0f88eb;
+	color: white;
+	float: left;	
+	border-radius: 3px;
+	margin: 9px 0 0 16px;
+	text-align: center;
+	line-height: 34px;
+	cursor:pointer;
+}
+.user{
+	width: 30px;
+	height: 30px;
+	float: right;
+	margin-top: 11px;
+	background: url(../images/yh.png) no-repeat;
+	position: relative;
+}
+.bell,.wechat{
+	float: right;
+	margin:15px 40px 0 5px ;
+	width: 20px;
+	height: 20px;
+}
+.bell{
+	background: url(../images/01.png);
+}
+.wechat{
+	background: url(../images/03.png);
+}
+.bell:hover{
+	background: url(../images/02.png);
+}
+.wechat:hover{
+	background: url(../images/04.png);
+}
+/*下拉框*/
+.modal{
+	position: absolute;
+	width: 100px;
+	height: 105px;
+	top: 42px;
+	left: -35px;
+}
+.triangle{
+	width: 0;
+    height: 0;
+    border-left: 6px solid transparent;
+    border-right: 6px solid transparent;
+    border-bottom: 5px solid white;
+	margin: auto;
+	z-index: 2;
+}
+.modals{
+	width: 100px;
+	height: 90px;
+	padding: 5px 0;
+	background: white;
+	border-radius: 5px;
+	box-shadow: 0 2px 2px 0 #aaaaaa;
+}
+.modals>a{
+	width: 85px;
+	padding-left: 15px;
+	height: 30px;
+	display: block;
+}
+.modals>a:hover{
+	background: #eeeeee;
+}
+.modals>a>img{
+	margin-top: 6px;
+	width: 15px;
+	height: 15px;
+	float: left;
+}
+.modals>a>p{
+	float: left;
+	padding-left: 5px;
+	line-height: 30px;
+	font-size: 12px;
+}
+/*内容部分*/
+.bodyer{
+	width: 100%;
+	/*height: 300px;*/
+	background: #f3f3f3;
+	margin-top: 52px;
+	overflow: hidden;
+}
+.navs{
+	width: 1000px;
+	margin:11px auto 0;
+}
+.left_nav{
+	width: 694px;
+	float: left;
+}
+.classification,.hot_content{		
+	background: white;
+	box-shadow: 0 0 2px 0 #bbb;
+	border-radius: 3px;
+	margin-bottom: 10px;	
+}
+.classification{
+	width: 100%;
+	height: 60px;
+}
+.classification>ul{
+	float: left;
+}
+.classification>ul>li{
+	float: left;
+	height: 60px;
+	padding: 0 20px;
+}
+.classification>ul>li>a{
+	height: 60px;
+	line-height: 60px;
+	display: block;
+	text-decoration:none;
+}
+.classification>ul>li>a>img{
+	margin-top: 22px;
+	float: left;
+}
+.classification>ul>li>a>p{
+	float: left;
+	margin-left: 10px;
+	font-size: 15px;
+	color: #111111;
+}
+.classification>ul>li>a>p:hover{
+	color: blue;
+}
+.classification>a{
+	float: right;
+	margin:20px 20px 0 0;
+	text-decoration:none;
+}
+.classification>a:hover{
+	color: blue;
+}
+.hot_content{
+	width: 654px;
+	padding: 15px 20px 20px 20px;
+	position: relative;
+}
+.closer{
+	position: absolute;
+	width: 10px;
+	height: 10px;
+	background: url(../images/cloos.png);
+	top: 15px;
+	right: 15px;
+	background-size: 100% 100%;
+}
+.explains,.explains>span{
+	font-size: 13px;
+	color: #8590a6;
+	margin-bottom: 15px;
+}
+.titles{
+	font-size: 18px;
+	color: #000000;
+	font-weight:bold;
+	text-decoration:none;
+	display: block;
+	margin-bottom: 15px;
+}
+.titles:hover{
+	color: blue;
+}
+.users{
+	widows: 100%;
+	height: 24px;	
+	overflow: hidden;
+	margin-bottom: 15px;
+}
+.user_name{
+	font-weight:bold;
+	color: #666666;
+	font-size: 13px;
+	float: left;
+}
+.head_portrait{
+	width: 24px;
+	height: 24px;
+	border-radius: 1px;
+	margin-right: 5px;
+	vertical-align:middle;
+}
+.autograph{
+	color: #aaaaaa;
+	font-size: 12px;
+	display: inline-block;
+	height: 18px;
+	padding: 6px 0 0 5px;
+	float: left;
+}
+.describe{
+	height: 104px;
+	width: 100%;
+	margin-bottom: 15px;
+}
+.picture{
+	width: 190px;
+	height: 104px;
+	border-radius: 3px;
+	float: left;
+	margin-right: 15px;
+}
+.picture>img{
+	width: 190px;
+	height: 104px;
+}
+.words{
+	width: 445px;
+	line-height: 25px;
+	float: left;
+	font-size: 14px;
+	color: #333333;
+	position: relative;
+}
+.words>a{
+	width: 60px;
+	height: 16px;
+	border: 1px solid blue;
+	font-size: 12px;
+	color: blue;
+	border-radius: 3px;
+	text-align: center;
+	line-height: 16px;
+	position: absolute;
+	bottom: 0;
+	right: 0;
+}
+.loves{
+	width: 100%;
+	height: 28px;
+}
