@@ -16,7 +16,8 @@ let pages = require(__dirname+"/pages.js");
 //引入users用户表分路由器
 let users = require(__dirname+"/users.js");
 
-
+//引入aiticle文章表分路由器
+let article = require(__dirname+"/article.js");
 
 //这里是总路由
 //主页
@@ -25,7 +26,8 @@ router.get("/",pages.showIndex);
 router.get("/login",pages.showLogin);
 //注册页
 router.get("/regist",pages.showRegist);
-
+//文章页
+router.get("/p/:articlename",pages.showArticle)
 
 
 //这里是API路由
@@ -37,6 +39,11 @@ router.post("/users/regist",users.userRegist);
 router.post("/users/logout",users.userLogout);
 //检查是否登陆
 router.get("/users/checkLogin",users.checkLogin);
+//发表文章
+router.post("/article/publish",article.publishAriticle);
+//发表回复
+router.post("/article/comment",article.addComment);
+
 
 //这里是额外路由
 router.get(function(req, res, next) {

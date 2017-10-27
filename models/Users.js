@@ -4,6 +4,7 @@ let mongoDB = require("../config/db.js");
 let Schema = mongoDB.Schema;
 
 let UsersSchema = new Schema({
+  id : {type : Number},
   username : {type:String},
   nickname : {type:String},
   password : {type:String},

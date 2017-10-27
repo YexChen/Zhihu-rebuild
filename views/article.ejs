@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  我是文章页面
+  <h1><%=name%></h1>
+  <p>作者：<%= author%></p>
+  <p><%=content%></p>
+  <p><%=publishtime%></p>
+  <%for(let i=0;i<collected.length;i++){%>
+  <p><%=collected[i]%></p>
+  <%}%>
+  <%for(let i=0;i<comments.length;i++){%>
+  <p><%=comments[i].content%><span><%=comments[i].user%></span></p>
+  <%}%>
+</body>
+</html>
