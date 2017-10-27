@@ -24,6 +24,14 @@ ArticleSchema.static("findArticle",function(id,callback){
 
 ArticleSchema.static("updateComment",function(pid,cid,callback){
   this.update({"_id":pid},{"$push":{"comments":cid}},callback);
+});
+
+ArticleSchema.static("deleteFave",function(params,callback){
+  this.update({"_id":params.pid},{"$pull":{"faved":params.uid}},callback);
+})
+
+ArticleSchema.static("addFave",function(params,callback){
+  this.update({"_id":params.pid},{"$push":{"faved":params.uid}},callback);
 })
 
 module.exports = mongoDB.model("Article",ArticleSchema);
