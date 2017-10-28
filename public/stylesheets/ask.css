@@ -119,15 +119,17 @@ a{
 	line-height: 3.3333rem;
 	background: white;
 	color: blue;
-	box-shadow: 0 0 2px 0 #bbbbbb;
+	box-shadow: 0 0 5px 0 #bbbbbb;
 	margin-bottom: 1rem;
 }
+/*最佳回答*/
 .best_answer{
 	width: 100%;
 	background: white;
 	padding: 1rem 1rem 1.5rem 1rem;
 	box-sizing: border-box;
-	box-shadow: 0 0 2px 0 #bbbbbb;
+	box-shadow: 0 0 5px 0 #bbbbbb;
+	margin-bottom: 1rem;
 }
 .first_floor{
 	width: 100%;
@@ -168,4 +170,105 @@ a{
 	width: 100%;
 	font-size: 1.2rem;
 	line-height: 1.8rem;
+}
+.likes{
+	width: 100%;
+	height: 2.656rem;
+	margin-top: 1rem;
+}
+.like{
+	display: inline-block;
+	float: left;
+	width: 5.3rem;
+	height: 2.656rem;
+	background: #ebf3fb;
+	color: #2d84cc;
+	text-align: center;
+	line-height: 2.656rem;
+	border-radius: 3px;
+	margin-right: 1rem;
+}
+.like>img{
+	margin-right: 0.7rem;
+}
+.dislike{
+	float: left;
+	width: 2.422rem;
+	height: 2.656rem;
+	text-align: center;
+	line-height: 2.656rem;
+	background:#ebf3fb ;
+	margin-right: 1rem;
+	border-radius: 3px;
+}
+.commentarie{
+	float: left;
+	width: 3.4375rem;
+	height: 2.656rem;
+	text-align: center;
+	line-height: 2.656rem;
+	color: #999999;
+	margin-right: 1rem;
+}
+.commentarie>img{
+	margin-right: 0.5rem;
+}
+.collect{
+	float: left;
+	margin-right: 1rem;	
+	line-height: 2.656rem;
+}
+/*更多问题*/
+.more_problems{
+	width: 100%;
+	background:white;
+	margin-bottom: 1rem;
+	box-shadow: 0 0 5px 0 #bbbbbb;
+	padding: 0 1rem;
+	box-sizing: border-box;
+}
+.related_issues,.topic{
+	width: 100%;
+	height: 3.828rem;
+	line-height: 3.828rem;
+	color: #000000;
+	font-size: 1.1rem;
+	font-weight: 600;
+}
+.problem{
+	margin-top: 0.5rem;
+	display: block;
+	color: blue;
+	line-height: 1.72rem;
+}
+.problem>p{
+	display: inline-block;
+	color: #999999;
+	margin: 0;
+}
+/*更多回答*/
+.more_answers{
+	width: 100%;
+	background:white;
+	box-shadow: 0 0 5px 0 #bbbbbb;
+	padding: 0 1rem 1rem;
+	box-sizing: border-box;
+}
+.more_answer{
+	width: 100%;
+	margin: 1.2rem 0;
+}
+.topic{
+	border-bottom: 1px solid #cccccc;
+}
+/*查看全部回答*/
+.view{
+	width: 100%;
+	height: 3rem;
+	background: white;
+	text-align: center;
+	line-height: 3rem;
+	font-size: 1.2rem;
+	color: blue;
+	border-top: 1px solid #cccccc;
 }
