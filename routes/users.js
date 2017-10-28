@@ -152,3 +152,8 @@ exports.checkLogin = function(req,res){
     });
   });
 }
+
+//用户照片上传(post)
+exports.uploadImage = function(req,res,next){
+  
+}

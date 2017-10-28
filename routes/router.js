@@ -41,8 +41,12 @@ router.post("/users/logout",users.userLogout);
 router.get("/users/checkLogin",users.checkLogin);
 //发表文章
 router.post("/article/publish",article.publishAriticle);
+//文章点赞API
+router.post("/article/fave",article.pageFave);
 //发表回复
 router.post("/article/comment",article.addComment);
+//楼中楼回复
+router.post("/article/commenttocomment",article.commentToComment);
 
 
 //这里是额外路由

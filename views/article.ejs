@@ -12,11 +12,23 @@
   <p>作者：<%= author%></p>
   <p><%=content%></p>
   <p><%=publishtime%></p>
+  <p><%=faved.length%>人觉得很赞</p>
+  <button>点赞</button>
   <%for(let i=0;i<collected.length;i++){%>
   <p><%=collected[i]%></p>
   <%}%>
   <%for(let i=0;i<comments.length;i++){%>
-  <p><%=comments[i].content%><span><%=comments[i].user%></span></p>
+    <div data-id=<%=comments[i]._id%> >
+      <p><%=comments[i].content%><span><%=comments[i].user%></span>
+      </p>
+      <p>楼中楼:</p>
+      <% for(let j=0;j<comments[i].conversation.length;j++){%>
+        <%= comments[i].conversation[j].content%>
+        <%= comments[i].conversation[j].commenttime%>
+        <%= comments[i].conversation[j].user%>
+      <% }%>
+      <button>点赞</button>
+    </div>
   <%}%>
 </body>
 </html>

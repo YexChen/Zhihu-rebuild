@@ -76,6 +76,7 @@ exports.addComment = function(req,res,next){
         });
       }
       //然后再在新的回掉函数中提示添加完毕
+      //这里要多加一条文章为空的错误处理
       return res.json({
         status : 0,
         msg : "用户评论添加完毕"
@@ -84,4 +85,131 @@ exports.addComment = function(req,res,next){
   })
 }
 
-//
+//添加楼中楼回复(body)
+exports.commentToComment = function(req,res,next){
+  //前端传过来的参数：
+  //@params id 评论的_id(层主comment的id)
+  //@params user 评论的人（新评论的人）
+  //@params content 评论的内容
+  let params = {
+    id : req.body.id,
+    user : req.body.user,
+    content : req.body.content
+  }
+  //先判断参数是否存在，@to-fixed:如果后期有时间就做一下用户是否存在
+  if(!params.id||!params.user||!params.content){
+    return res.json({
+      status : 102,
+      msg : "参数错误"
+    });
+  }
+  //然后更新层主comment的conversation，插入一个对象
+  Comments.updateComment(params,(err,doc)=>{
+    if(err){
+      return res.json({
+        status : 506,
+        msg : "系统更新楼中楼时发生错误",
+        err
+      });
+    }
+    if(doc == ""){
+      return res.json({
+        status : 105,
+        msg : "层主id未找到"
+      });
+    }
+    //然后在回掉函数中提示成功json
+    return res.json({
+      status : 0,
+      msg : "楼中楼添加成功"
+    })
+  })
+}
+
+//页面点赞功能(post)
+exports.pageFave = function(req,res,next){
+//前端传过来的数据：
+//@params pid 文章名
+//@params uid 用户名（点赞的人）
+let params = {
+  pid : req.body.pid,
+  uid : req.body.uid
+}
+
+//先检查参数，@todo后期在做确认用户名是否存在
+if(!params.pid||!params.uid){
+  return res.json({
+    status : 101,
+    msg : "参数错误"
+  });
+}
+//进入数据库找文章
+Article.findArticle(params.pid,(err,doc)=>{
+  if(err){
+    return res.json({
+      status : 503,
+      msg : "数据库文章查找错误"
+    });
+  }
+  if(doc == ""){
+    return res.json({
+      status : 103,
+      msg : "文章没有找到"
+    });
+  }
+
+  let promise = new Promise(function(resolve,result){
+    let find = false;
+    for(let i =0;i<doc[0].faved.length;i++){
+      if(doc[0].faved[i]==params.uid){
+        // 如果有用户名的话删掉用户名
+        find = true;
+        Article.deleteFave(params,(err,doc)=>{
+          if(err){
+            return res.json({
+              err
+            });
+          }
+          if(doc == ""){
+            return res.json({
+              status : 104,
+              msg : "文章没有找到"
+            })
+          }
+          return res.json({
+            status : 0,
+            msg : "成功取消赞"
+          });
+        })
+      }
+    }
+    if(!find)
+      resolve(find);
+  });
+
+  promise.then(function(find){
+    //如果没有的话，添加用户名
+    Article.addFave(params,(err,doc)=>{
+      if(err){
+        return res.json({
+          status : 505,
+          msg : "数据库查询文章时出错",
+          err
+        });
+      }
+      if(doc == ""){
+        return res.json({
+          status : 107,
+          msg : "文章没有找到"
+        });
+      }
+      return res.json({
+        status : 0,
+        msg : "成功添加赞"
+      })
+    });
+  });
+
+});
+
+}

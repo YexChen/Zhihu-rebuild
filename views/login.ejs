@@ -1,12 +1,126 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta http-equiv="X-UA-Compatible" content="ie=edge" />
+	<title>注册登录</title>
+	<!-- <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/> -->
+	<link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+	<link rel="stylesheet" href="/stylesheets/login.css" />
+	<!--<script type="text/javascript" src="bootstrap/js/bootstrap.js" ></script>-->
+	<script type="text/javascript" src="/javascripts/jquery-3.2.1.js" ></script>
+	<!--[if lt IE 9]>
+	<script type="text/javascript" src="js/html5shiv.js" ></script>
+	<![endif]-->
 </head>
 <body>
-  我是登陆页
+	<div class="zh_mian">
+		<div class="zh_container">
+			<div class="zh_header">
+				<h1></h1>
+				<h2>与世界分享你的知识、经验和见解</h2>
+			</div>
+			<div class="zh_section">
+				<ul class="zh_nav zh_nav-tabs">
+				  <li class="active"><a href="#">注册</a></li>
+				  <li><a href="#">登录</a></li>
+				</ul>
+				<div class="zh_login">
+					<form method="post">
+						<div class="zh_input">
+							<div class="phone">
+								<input type="text" name="" placeholder="手机号或邮箱" />
+							</div>
+							<div class="password">
+								<input type="password" name="" placeholder="密码(不少于6位)" />
+							</div>
+						</div>
+						<div class="zh_btn">
+							<button type="button" class="btn btn-primary btn-lg btn-block">登录</button>
+						</div>
+						<a class="left" href="#">手机验证码登录</a>
+						<a class="right" href="#">无法登录?</a>
+						<div class="zh_div">
+							<span>二维码登录</span>
+							<span>·</span>
+							<span>社交账号登录</span>
+						</div>
+						<div class="zh_app">
+							<button>下载知乎 App</button>
+							<div class="zh_QRcode">
+								<img src="/images/qr-code@2.png"/>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="zh_register">
+					<form method="post">
+						<div class="zh_input">
+							<div class="name">
+								<input type="text" name="" placeholder="姓名" />
+							</div>
+							<div class="phone">
+								<input type="tel" name="" placeholder="手机号" />
+							</div>
+							<div class="password">
+								<input type="password" name="" placeholder="密码(不少于6位)" />
+							</div>
+						</div>
+						<div class="zh_btn">
+							<button type="button" class="btn btn-primary btn-lg btn-block">注册知乎</button>
+						</div>
+					</form>
+					<p class="zh_agreement">点击「注册」按钮，即代表你同意
+						<a href="#">《知乎协议》</a>
+					</p>
+					<a class="zh_signup" href="#">注册机构号</a>
+					<div class="zh_app">
+						<button>下载知乎 App</button>
+						<div class="zh_QRcode">
+							<img src="/images/qr-code@2.png"/>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="zh_footer hidden-lg hidden-md hidden-sm">
+		<a href="#">联系我们</a>
+	</div>
+	<div class="zh_footer hidden-xs">
+		<a href="#">知乎专栏</a>
+		<span class="dot">·</span>
+		<a href="#">知乎圆桌</a>
+		<span class="dot">·</span>
+		<a href="#">发现</a>
+		<span class="dot">·</span>
+		<a href="#">移动应用</a>
+		<span class="dot">·</span>
+		<a href="#">联系我们</a>
+		<span class="dot">·</span>
+		<a href="#">来知乎工作</a>
+		<br />
+		<span>&copy; 2017 知乎</span>
+		<span class="dot">·</span>
+		<a href="#">京 ICP 证 110745 号</a>
+		<span class="dot">·</span>
+		<span>京公网安备 11010802010035 号</span>
+		<span class="dot">·</span>
+		<a href="http://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg">出版物经营许可证</a>
+		<br />
+		<a href="#">侵权举报</a>
+		<span class="dot">·</span>
+		<a href="#">网上有害信息举报专区</a>
+		<span class="dot">·</span>
+		<a href="#">儿童色情信息举报专区</a>
+		<span class="dot">·</span>
+		<span>违法和不良信息举报：010-82716601</span>
+		<div class="chengxing">
+			<a href="#">
+				<img src="/images/chengxing_logo@.png" />
+			</a>
+		</div>
+	</div>
 </body>
 </html>
