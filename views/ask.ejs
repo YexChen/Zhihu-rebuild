@@ -15,16 +15,16 @@
 		</div>
 		<!----问题------>
 		<div class="titles">
-			<h1 class="ask_questions">程序员最大的悲哀是什么？</h1>
+			<h1 class="ask_questions"><%=name%></h1>
 			<div class="answer">
 				<span class="attention">关注问题</span>
 				<a href="" class="write_answer">写回答</a>
-				<a href="" class="commentaries"><img src="/images/304.png"/>76</a>
+				<a href="" class="commentaries"><img src="/images/304.png"/><%=comments.length%></a>
 				<div class="more"></div>
 			</div>
 		</div>
 		<!-----全部回答------->
-		<div class="all_answers">查看全部1473293498743985个回答</div>
+		<div class="all_answers">查看全部<%=comments.length%>个回答</div>
 		<!--------最佳回答--------->
 		<div class="best_answer">
 			<div class="first_floor">
@@ -56,16 +56,17 @@
 		<div class="more_answers">
 			<div class="topic">更多回答</div>
 			<div class="more_answer">
+				<%for(let i=0;i<comments.length;i++){%>
 				<div class="first_floor">
 					<a class="head_portrait"><img src="/images/305.png"/></a>
 					<div class="user_name">
-						<a href="">陈颖轩</a>
+						<a href=""><%=comments[i].user%></a>
 						<p>他读书少，大家快来骗他</p>
 					</div>
 				</div>
-				<a class="peoples"><p>12334356657</p> 人赞同了该说法</a>
+				<a class="peoples"><p><%=comments[i].faved%></p> 人赞同了该说法</a>
 				<div class="review">
-					感觉nodejs实在学不会的同学和助教老师说一下，统计一下，感觉太难的同学明天开始可以提前学Vue,这样保证你能够学两遍vue, 能够把vue学的比较通；
+					<%=comments[i].content%>
 				</div>
 				<div class="likes">
 					<span class="like"><img src="/images/306.png"/>234</span>
@@ -74,6 +75,7 @@
 					<a href="" class="collect"><img src="/images/308.png"/></a>
 					<div class="more"></div>
 				</div>
+				<%}%>
 			</div>
 		</div>
 		<!----查看全部回答---->
