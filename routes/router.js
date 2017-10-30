@@ -27,8 +27,11 @@ router.get("/login",pages.showLogin);
 //注册页
 router.get("/regist",pages.showRegist);
 //文章页
-router.get("/p/:articlename",pages.showArticle)
-
+router.get("/p/:articlename",pages.showArticle);
+//问答页
+router.get("/ask/:askid",pages.showAsk);
+//用户页
+router.get("/user/:uid",pages.showUser);
 
 //这里是API路由
 //登陆API

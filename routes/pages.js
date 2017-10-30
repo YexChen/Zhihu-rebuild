@@ -3,6 +3,7 @@
 let express = require('express');
 let Article = require("../models/Article");
 let Comments = require("../models/Comment");
+let Users = require("../models/Users");
 
 exports.showIndex = function(req,res){
   //后期会在这里渲染index.js页面，这里直接渲染
@@ -48,3 +49,50 @@ exports.showArticle = function(req,res){
 
   });
 }
+
+//显示问答页面
+exports.showAsk = function(req,res,next){
+  //前端传过来的参数:askid
+  //@params askid 问答页面id
+  //用ejs渲染
+  //从数据库里面寻找问答页面的id,然后渲染出来
+  let params = {
+    askid : req.params["askid"]
+  };
+  Article.findArticle(params.askid,(err,doc)=>{
+    if(err){
+      return res.json({
+        status : 502,
+        msg : "数据库查询文章错误"
+      });
+    }
+    if(doc == ""){
+      return res.json({
+        status : 103,
+        msg : "无法找到文章"
+      });
+    }
+    return res.render("ask",doc[0]);
+  });
+}
+
+exports.showUser = function(req,res,next){
+  //前端传过来的数据：
+  //@params uid 用户 name 
+  let params = {
+    uid : req.params["uid"]
+  };
+  Users.findUser(params.uid,(err,doc)=>{
+    if(err)
+      return res.json({
+        status : 505,
+        msg : "数据库查找用户名出错"
+      });
+    if(doc == "")
+      return res.json({
+        status : 109,
+        msg : "用户无法找到"
+      });
+    return res.render("user",doc[0]);
+  });
+};
