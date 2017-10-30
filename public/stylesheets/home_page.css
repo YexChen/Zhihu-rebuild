@@ -136,6 +136,9 @@ a{
 	float: left;
 	margin-top: 0.95rem;
 }
+.nav_list{
+	width: 100%;
+}
 .navs{
 	width: 100%;
 	padding: 0.8rem 0;
@@ -178,7 +181,7 @@ a{
 	/*text-overflow:ellipsis;
 	overflow:hidden;*/
 }
-.titles:active{
+a:active{
 	text-decoration: none;
 }
 .account{
@@ -204,11 +207,18 @@ a{
 }
 .contents{
 	width: 100%;
+<<<<<<< HEAD
+	height: 13rem;
+	word-wrap: break-word; 
+	word-break: normal; 
+=======
 	height: 14rem;
 	word-wrap: break-word;
 	word-break: normal;
+>>>>>>> 531c522081f355791ee35a563316b24f1a63aee6
 	font-size: 0.9rem;
 	line-height: 1.6;
+	color:#999999;
 }
 .contents>img{
 	width: 13.33334rem;
@@ -219,4 +229,108 @@ a{
 }
 .panels{
 	width: 100%;
+	color:#999999;
+}
+.vote{
+	width: 1.7333rem;
+	height: 1.46667rem;
+	border-radius: 3px;
+	background: #eff6fa;
+	color: #698ebf;
+	line-height: 1.46667rem;
+	font-size: 0.9rem;
+	text-align: center;
+	float: left;
+	margin-right: 0.5rem;
+}
+.attention{
+	color: #999999;
+	margin-right: 0.3rem;
+}
+.comment,.thanks,.intervals{
+	color: #999999;
+	margin-right: 0.3rem;
+}
+.comment>img{
+	display: inline-block;
+}
+.comment>p{
+	display: inline-block;
+	color: #999999;
+}
+.thanks>img{
+	width: 10px;
+	height: 9px;
+}
+.intervals>img{
+	width: 0.86667rem;
+}
+/*查看更多*/
+.btn-like-more,.btn-like-more-over {
+    margin: 2rem auto;
+    line-height: 2rem;
+    color: #9b9b9b;
+    /*display: none;*/
+    width: 96%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 5px;
+    font-size: 0.4rem;
+    border: 1px solid #dedede;
+    background: #fff;
+}
+.question,.service_center,.column,.zhihu_love,.zhihu_yz{
+	width: 100%;
+	border-bottom: 1px solid #eeeeee;
+	padding: 0;
+}
+.question>li,.service_center>li,.loves>li{
+	margin-bottom: 1rem;
+	list-style: none;
+	color: #999999;
+	width: 100%;
+}
+.question>li>img,.service_center>li>img{
+	width: 0.8rem;
+	margin-right: 0.3rem;
+}
+.column{
+	padding-bottom: 1rem;
+}
+.column>p,.zhihu_love>div>p,.zhihu_yz>div>p{
+	color: #000000;
+	font-weight: 600;
+	display: block;
+	font-size: 1.2rem;
+}
+.column>a{
+	color: #999999;
+}
+.column>a>img{
+	margin-right: 0.5rem;
+}
+.zhihu_love>div,.zhihu_yz>div{
+	width: 100%;
+	height: 3.5rem;
+}
+.zhihu_love>div>p,.zhihu_yz>div>p{
+	margin-top: 0.8rem;
+	float: left;
+}
+.zhihu_love>div>a,.zhihu_yz>div>a{
+	margin-top: 1rem;
+	float: right;
+	color: blue;
+	font-size: 0.9rem;
+}
+.loves{
+	width: 100%;
+	padding: 0;
+}
+.loves>li>img{
+	margin-right: 0.5rem;
+}
+.news{
+	float: right;
+	font-size: 0.8rem;
 }
