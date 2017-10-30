@@ -2,6 +2,7 @@ let express = require("express");
 let Users = require("../models/Users");
 let pwdenc = require("../config/md5enc");
 let bodyParser = require("body-parser");
+let formidable = require("formidable");
 
 exports.userLogin = function(req,res,next){
   //处理用户登录请求，需要接收用户名和密码
@@ -155,5 +156,33 @@ exports.checkLogin = function(req,res){
 
 //用户照片上传(post)
 exports.uploadImage = function(req,res,next){
-  
+  //前端传过来的参数：一个form表单
+  //@params form 表单
+  //@params username 用户名
+  let oForm = new formidable.IncomingForm();
+  //把头像保存到文件夹里
+  oForm.uploadDir = "./public/Avator";
+  oForm.keepExtensions = true;
+  oForm.parse(req,(err,filed,file)=>{
+    if(err)
+      throw err;
+    //然后在用户表里添加路径(avator)
+    Users.addAvator(filed.username,file.pic.path,(err,doc)=>{
+      if(err)
+        return res.json({
+          status : 504,
+          msg : "服务器查询用户出错"
+        });
+      if(doc == "")
+        return res.json({
+          status : 104,
+          msg : "找不到指定用户"
+        });
+      return res.json({
+        status : 0,
+        msg : "用户图片上传成功"
+      });
+    });
+  });
+
 }
