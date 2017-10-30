@@ -5,6 +5,7 @@ let Schema = mongoDB.Schema;
 
 let UsersSchema = new Schema({
   id : {type : Number},
+  avator : {type : String},
   username : {type:String},
   nickname : {type:String},
   password : {type:String},
@@ -30,5 +31,16 @@ UsersSchema.static("createUser",function(params,callback){
   this.create({"username":params.username,"password":params.password},callback)
 });
 
+UsersSchema.static("addStar",function(params,callback){
+  this.update({"username":params.username},{"$push":{"Star":params.pid}},callback);
+});
+
+UsersSchema.static("removeStar",function(params,callback){
+  this.update({"username":params.username},{"$pull":{"Star":params.pid}},callback);
+});
+
+UsersSchema.static("addAvator",function(username,path,callback){
+  this.update({"username":username},{"avator":path},callback);
+});
 
 module.exports = mongoDB.model("Users",UsersSchema);

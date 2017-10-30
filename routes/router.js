@@ -39,6 +39,8 @@ router.post("/users/regist",users.userRegist);
 router.post("/users/logout",users.userLogout);
 //检查是否登陆
 router.get("/users/checkLogin",users.checkLogin);
+//上传照片API
+router.post("/users/uploadImage",users.uploadImage);
 //发表文章
 router.post("/article/publish",article.publishAriticle);
 //文章点赞API
@@ -47,6 +49,8 @@ router.post("/article/fave",article.pageFave);
 router.post("/article/comment",article.addComment);
 //楼中楼回复
 router.post("/article/commenttocomment",article.commentToComment);
+//收藏API
+router.post("/article/star",article.starArticle);
 
 
 //这里是额外路由

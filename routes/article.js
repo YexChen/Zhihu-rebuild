@@ -3,6 +3,7 @@ let Article = require("../models/Article");
 let pwdenc = require("../config/md5enc");
 let bodyParser = require("body-parser");
 let Comments = require("../models/Comment");
+let Users = require("../models/Users");
 
 //发表文章(post)
 exports.publishAriticle = function(req,res,next){
@@ -211,5 +212,98 @@ Article.findArticle(params.pid,(err,doc)=>{
   });
 
 });
+
+}
+
+//收藏文章功能
+exports.starArticle = function(req,res,next){
+  //前端传过来的参数：
+  //@params pid 文章的id (url)
+  //@params username 用户的username（cookie里面取）
+  let params = {
+    pid : req.body.pid,
+    username : req.body.username
+  };
+  //@todo检查pid是否合法，告诉前端请求一次检查是否登陆api
+  //先检查参数，如果错误返回报错json
+  if(!params.pid||!params.username){
+    return res.json({
+      status : 108,
+      msg : "参数错误",
+      detail : req.body
+    });
+  }
+  //通过promise语法来进行判断，指定用户中star是否有该文章
+  Users.findUser(params.username,(err,doc)=>{
+    if(err){
+      return res.json({
+        status : 501,
+        msg : "服务器查询用户错误",
+      });
+    }
+    if(doc ==""){
+      return res.json({
+        status : 104,
+        msg : "用户不存在"
+      });
+    }
+    //循环看指定用户中star是否有该文章
+    let promise = new Promise(function(resolve,reject){
+      let uStar = doc[0].Star;
+      let flag = false;
+      for(let i =0;i<uStar.length;i++){
+        if(uStar[i]==params.pid){
+          flag = true;
+          //如果已经添加收藏则取消收藏
+          Users.removeStar(params,(err,doc)=>{
+            if(err){
+              return res.json({
+                status : 504,
+                msg : "数据库查询用户收藏错误"
+              });
+            }
+            if(doc = ""){
+              return res.json({
+                status : 105,
+                msg : "用户不存在"
+              });
+            }
+            return res.json({
+              status : 0,
+              msg : "成功取消收藏"
+            })
+          })
+        }
+      }
+      if(!flag)
+        resolve();
+    });
+    //然后把pid插入到users表里面的Star数组里面去
+    promise.then(function(){
+      Users.addStar(params,(err,doc)=>{
+        //如果报错，返回报错json
+        if(err){
+          return res.json({
+            status : 503,
+            msg : "服务器查询用户表时发生错误"
+          });
+        }
+        if(doc == ""){
+          return res.json({
+            status : 104,
+            msg : "用户信息未找到"
+          });
+        }
+        //插入成功，返回正确json
+        return res.json({
+          stauts : 0,
+          msg : "文章收藏成功",
+          detail : doc
+        })
+      });
+    })
+  });
+
+
 
 }
